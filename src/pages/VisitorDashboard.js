@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { fetchVisitorData } from '../utils/visitorApi';
 import { loadVisitorDataFromFile, getVisitorById, getVisitorCategoryStats } from '../utils/visitorService';
 import { fetchExhibitorByObjectId } from '../utils/exhibitorService';
@@ -7,7 +7,6 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import './VisitorDashboard.css';
 
 const VisitorDashboard = () => {
-  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [visitorName, setVisitorName] = useState({ firstName: '', lastName: '' });
   const [visitorStats, setVisitorStats] = useState(null);
@@ -178,8 +177,6 @@ const VisitorDashboard = () => {
       </div>
     );
   }
-
-  const CHART_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#06b6d4'];
   
   // Get category stats for charts
   const categoryStats = getVisitorCategoryStats(visitorStats);
