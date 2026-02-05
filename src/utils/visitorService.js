@@ -82,7 +82,7 @@ function parseArrayString(str) {
   
   try {
     // Remove brackets and split by comma
-    const cleaned = str.replace(/[\[\]]/g, '').trim();
+    const cleaned = str.replace(/[[\]]/g, '').trim();
     if (!cleaned) return [];
     
     return cleaned.split(',')
