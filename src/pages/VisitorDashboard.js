@@ -256,7 +256,7 @@ const VisitorDashboard = () => {
               <div key={index} className="interest-tag">
                 <span className="tag-dot"></span>
                 <span className="interest-name">{interest}</span>
-                <span className="interest-count">{matchCount} match{matchCount !== 1 ? 'es' : ''}</span>
+                <span className="interest-count">{matchCount} connection{matchCount !== 1 ? 's' : ''}</span>
               </div>
             );
           })}
@@ -312,7 +312,7 @@ const VisitorDashboard = () => {
           <span className="title-badge">{connectedCompanies.length}</span>
         </h2>
         <p className="section-description">
-          Top companies this visitor has engaged with during the event
+          Top companies this visitor has engaged with during the event (sorted by relevancy)
         </p>
         <div className="companies-grid">
           {getPaginatedItems(connectedCompanies, connectedPage).map((company, index) => {
@@ -337,7 +337,7 @@ const VisitorDashboard = () => {
                   className="connect-btn"
                   onClick={() => toggleContact(companyKey)}
                 >
-                  {isContactVisible ? '✕ Close' : '📞 Connect'}
+                  {isContactVisible ? '✕ Close' : 'View Details'}
                 </button>
                 {isContactVisible && (
                   <div className="contact-details">
@@ -372,7 +372,7 @@ const VisitorDashboard = () => {
               onClick={() => setConnectedPage(p => Math.max(1, p - 1))}
               disabled={connectedPage === 1}
             >
-              ← Previous
+              ←
             </button>
             <span className="pagination-info">
               Page {connectedPage} of {getTotalPages(connectedCompanies)}
@@ -382,7 +382,7 @@ const VisitorDashboard = () => {
               onClick={() => setConnectedPage(p => Math.min(getTotalPages(connectedCompanies), p + 1))}
               disabled={connectedPage === getTotalPages(connectedCompanies)}
             >
-              Next →
+              →
             </button>
           </div>
         )}
@@ -456,7 +456,7 @@ const VisitorDashboard = () => {
               onClick={() => setRecommendedPage(p => Math.max(1, p - 1))}
               disabled={recommendedPage === 1}
             >
-              ← Previous
+              ←
             </button>
             <span className="pagination-info">
               Page {recommendedPage} of {getTotalPages(recommendedCompanies)}
@@ -466,7 +466,7 @@ const VisitorDashboard = () => {
               onClick={() => setRecommendedPage(p => Math.min(getTotalPages(recommendedCompanies), p + 1))}
               disabled={recommendedPage === getTotalPages(recommendedCompanies)}
             >
-              Next →
+              →
             </button>
           </div>
         )}
